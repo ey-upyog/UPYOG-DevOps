@@ -411,7 +411,7 @@ master:
                   scm:
                     git:
                       credentialsId: "git_read"
-                      remote: "git@github.com:egovernments/CIOps.git"
+                      remote: "git@github.com:ey-upyog/CIOps.git"
                       traits:
                       - "gitBranchDiscovery"
       system-message: | 
@@ -483,7 +483,7 @@ master:
                 disabled(false)
               }
               {{- else if (eq $job.name "bootcamp") }}            
-              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'UPYOG-Bootcamp', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
+              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'UPYOG-Bootcamp-jenkins', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
                 }
