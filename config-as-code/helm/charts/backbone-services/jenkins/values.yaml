@@ -23,7 +23,7 @@ oauth:
 
 jobBuilder:
   repos: >-
-    'git@github.com:egovernments/core-services.git','git@github.com:egovernments/business-services.git'
+    'git@github.com:ey-upyog/UPYOG.git'
 
 master:
   httpsKeyStore:
@@ -476,21 +476,21 @@ master:
                   cps {
                       script("""library 'ci-libs'
               {{- if (eq $job.name "central-instance") }}            
-              deployer(repo:'git@github.com:egovernments/DIGIT-DevOps.git', branch: 'central-instance', helmDir: 'deploy-as-code/helm', environment: '{{ $job.name }}')""")
+              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'central-instance', helmDir: 'deploy-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
                 }
                 disabled(false)
               }
               {{- else if (eq $job.name "bootcamp") }}            
-              deployer(repo:'git@github.com:nikhilmulinti-egov/DIGIT-DevOps.git', branch: 'DIGIT-Bootcamp', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
+              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'UPYOG-Bootcamp', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
                 }
                 disabled(false)
               }
               {{- else }}
-              deployer(repo:'git@github.com:egovernments/DIGIT-DevOps.git', branch: 'master', helmDir: 'deploy-as-code/helm', environment: '{{ $job.name }}')""")
+              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'master', helmDir: 'deploy-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
                 }
