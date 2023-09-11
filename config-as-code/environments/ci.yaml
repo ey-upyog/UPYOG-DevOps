@@ -33,16 +33,9 @@ jenkins:
   jobBuilder:
     repos: >-
       'git@github.com:ey-upyog/UPYOG.git'
-  deploymentJobs:
-    - name: dev
-      acl: [eydigit*micro-service-dev]
-    - name: unified-dev
-
-    - name: master
-      acl: [eydigit*micro-service-devops]
-    - name: unified-master
-
-
+ deploymentJobs:  # Setup deploymentJobs ACL 
+    - name: dev    # deployment job name
+      acl: egovernments*micro-service-devops
   master:
     ingress:
       enabled: true
