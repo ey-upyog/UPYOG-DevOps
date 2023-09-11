@@ -23,7 +23,7 @@ oauth:
 
 jobBuilder:
   repos: >-
-    'git@github.com:egovernments/core-services.git','git@github.com:egovernments/business-services.git'
+    'git@github.com:ey-upyog/UPYOG.git'
 
 master:
   httpsKeyStore:
@@ -476,7 +476,7 @@ master:
                   cps {
                       script("""library 'ci-libs'
               
-              deployer(repo:'git@github.com:egovernments/DIGIT-DevOps.git', branch: 'release', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
+              deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'master', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
                 }
