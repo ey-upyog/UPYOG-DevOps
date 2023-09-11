@@ -482,7 +482,7 @@ master:
                 }
                 disabled(false)
               }
-              {{- else if (eq $job.name "bootcamp") }}            
+              {{- else if (eq $job.name "dev") }}            
               deployer(repo:'git@github.com:ey-upyog/UPYOG-DevOps.git', branch: 'UPYOG-Bootcamp-jenkins', helmDir: 'config-as-code/helm', environment: '{{ $job.name }}')""")
                       sandbox() 
                     }
