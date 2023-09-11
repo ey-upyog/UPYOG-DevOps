@@ -1,5 +1,5 @@
 global:
-  domain: jenkins.wontract.com ## Add your Domain Name Eg: site.mydomain.com
+  domain: jenkins.wontract.com ## Add your Domain Name 
   setup: fullsetup
 
 cluster-configs:
