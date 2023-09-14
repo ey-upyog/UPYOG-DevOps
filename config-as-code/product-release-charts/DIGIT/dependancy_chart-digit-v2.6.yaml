@@ -21,148 +21,148 @@ modules:
         - "authn-authz"
         - "frontend"
       services:
-        - eydigit/egov-accesscontrol:v1.1.3-72f8a8f87b-24
-        - eydigit/egov-enc-service:v1.1.2-72f8a8f87b-9
-        - eydigit/egov-filestore:v1.2.3-2ee9ec37-4
-        - eydigit/egov-idgen:v1.2.3-72f8a8f87b-7
-        - eydigit/egov-indexer:v1.1.6-72f8a8f87b-10
-        - eydigit/egov-localization:v1.1.3-72f8a8f87b-6
-        - eydigit/egov-location:v1.1.4-72f8a8f87b-6
-        - eydigit/egov-mdms-service:v1.3.2-72f8a8f87b-12
-        - eydigit/egov-notification-mail:v1.1.2-72f8a8f87b-12
-        - eydigit/egov-notification-sms:v1.1.3-48a03ad7bb-10
-        - eydigit/egov-otp:v1.2.2-72f8a8f87b-12
-        - eydigit/egov-persister:v1.1.4-72f8a8f87b-6
-        - eydigit/egov-pg-service:v1.2.3-72f8a8f87b-14
-        - eydigit/egov-searcher:v1.1.5-72f8a8f87b-16
-        - eydigit/egov-url-shortening:v1.1.1-72f8a8f87b-20
-        - eydigit/egov-user:v1.2.6-96b24b0d72-87
-        - eydigit/user-otp:v1.1.4-96b24b0d72-15
-        - eydigit/egov-workflow-v2:v1.2.1-96b24b0d72-72
-        - eydigit/pdf-service:v1.1.6-96b24b0d72-83
-        - eydigit/report:v1.3.4-96b24b0d72-16
-        - eydigit/chatbot:v1.1.6-72f8a8f87b-8
-        - eydigit/xstate-chatbot:v1.1.1-96b24b0d72-21
-        - eydigit/egov-user-chatbot:v1.2.6-96b24b0d72-4 
-        - eydigit/nlp-engine:v1.0.0-fbea6fba-21
-        - eydigit/egov-document-uploader:v0.0.1-48a03ad7bb-26
-        - eydigit/playground:1.0
+        - eydigit/egov-accesscontrol:Dev-664095bc56-1
+        - eydigit/egov-enc-service:Dev-66a3d3c080-1
+        - eydigit/egov-filestore:Dev-7bb8b88e0e-2
+        - eydigit/egov-idgen:Dev-015891fb72-2
+        - egovio/egov-indexer:v1.1.6-72f8a8f87b-10
+        - egovio/egov-localization:v1.1.3-72f8a8f87b-6
+        - egovio/egov-location:v1.1.4-72f8a8f87b-6
+        - eydigit/egov-mdms-service:Dev-b2d4de2a39-2
+        - egovio/egov-notification-mail:v1.1.2-72f8a8f87b-12
+        - egovio/egov-notification-sms:v1.1.3-48a03ad7bb-10
+        - egovio/egov-otp:v1.2.2-72f8a8f87b-12
+        - eydigit/egov-persister:Dev-5530c78998-1
+        - eydigit/egov-pg-service-db:Dev-fb07dfd1f8-2
+        - egovio/egov-searcher:v1.1.5-72f8a8f87b-16
+        - egovio/egov-url-shortening:v1.1.1-72f8a8f87b-20
+        - egovio/egov-user:v1.2.6-96b24b0d72-87
+        - egovio/user-otp:v1.1.4-96b24b0d72-15
+        - egovio/egov-workflow-v2:v1.2.1-96b24b0d72-72
+        - egovio/pdf-service:v1.1.6-96b24b0d72-83
+        - egovio/report:v1.3.4-96b24b0d72-16
+        - egovio/chatbot:v1.1.6-72f8a8f87b-8
+        - egovio/xstate-chatbot:v1.1.1-96b24b0d72-21
+        - egovio/egov-user-chatbot:v1.2.6-96b24b0d72-4 
+        - egovio/nlp-engine:v1.0.0-fbea6fba-21
+        - egovio/egov-document-uploader:v0.0.1-48a03ad7bb-26
+        - egovio/playground:1.0
     - name: business
       dependencies:
         - "core"
       services:
-        - eydigit/collection-services:v1.1.6-72f8a8f87b-23
-        - eydigit/billing-service:v1.3.4-72f8a8f87b-39
-        - eydigit/egf-instrument:v1.1.4-72f8a8f87b-4
-        - eydigit/egf-master:v1.1.3-72f8a8f87b-15
-        - eydigit/egov-apportion-service:v1.1.5-72f8a8f87b-5
-        - eydigit/egov-hrms-db:Dev-b02c59bbae-2
-        - eydigit/finance-collections-voucher-consumer:v1.1.6-96b24b0d72-18
+        - egovio/collection-services:v1.1.6-72f8a8f87b-23
+        - egovio/billing-service:v1.3.4-72f8a8f87b-39
+        - egovio/egf-instrument:v1.1.4-72f8a8f87b-4
+        - egovio/egf-master:v1.1.3-72f8a8f87b-15
+        - egovio/egov-apportion-service:v1.1.5-72f8a8f87b-5
+        - eygovio/egov-hrms:v1.2.2-57f79eb-1
+        - egovio/finance-collections-voucher-consumer:v1.1.6-96b24b0d72-18
     - name: utilities
       dependencies:
         - "core"
       services:
-        - eydigit/egov-custom-consumer:v1.1.1-72f8a8f87b-3
-        - eydigit/egov-pdf:v1.1.2-344ffc814a-37
+        - egovio/egov-custom-consumer:v1.1.1-72f8a8f87b-3
+        - egovio/egov-pdf:v1.1.2-344ffc814a-37
     - name: frontend            
       dependencies:
         - "business"
       services:
-        - eydigit/citizen:v1.5.0-c1825dd69-291
-        - eydigit/employee:v1.7.0-83c152772f-172
-        - eydigit/digit-ui:v1.4.0-29d4be1d4f-704  
+        - egovio/citizen:v1.5.0-c1825dd69-291
+        - egovio/employee:v1.7.0-83c152772f-172
+        - egovio/digit-ui:v1.4.0-29d4be1d4f-704  
     - name: m_pgr             #PGR
       dependencies:
         - "core"
         - "business"
       services:
-        - eydigit/pgr-services:v1.1.4-96b24b0d72-21
-        - eydigit/rainmaker-pgr:v1.1.4-48a03ad7bb-4
+        - egovio/pgr-services:v1.1.4-96b24b0d72-21
+        - egovio/rainmaker-pgr:v1.1.4-48a03ad7bb-4
     - name: m_property-tax    #PT
       dependencies:
         - "core"
         - "business"
       services:
-        - eydigit/property-services:v1.1.7-96b24b0d72-138
-        - eydigit/pt-calculator-v2:v1.1.5-96b24b0d72-12
-        - eydigit/pt-services-v2:v1.0.0-48a03ad7bb-4
+        - eydigit/property-services:Dev-c65c5f19bc-1
+        - eydigit/pt-calculator-v2:Dev-a523942420-1
+        - eydigit/pt-services-v2:Dev-b2df54d7a3-1
     - name: m_sewerage        #Sewerage
       dependencies:
         - "core"
         - "business"
       services:
-        - eydigit/sw-calculator:v1.3.2-96b24b0d72-15
-        - eydigit/sw-services:v1.4.2-96b24b0d72-31
+        - egovio/sw-calculator:v1.3.2-96b24b0d72-15
+        - egovio/sw-services:v1.4.2-96b24b0d72-31
     - name: m_bpa             #BPA
       dependencies:
           - "core"
           - "business"
       services:
-          - eydigit/bpa-services:v1.1.5-59f19cd017-74
-          - eydigit/bpa-calculator:v1.1.1-72f8a8f87b-8
-          - eydigit/land-services:v1.0.4-96b24b0d72-14
-          - eydigit/noc-services:v1.0.4-96b24b0d72-18
+          - egovio/bpa-services:v1.1.5-59f19cd017-74
+          - egovio/bpa-calculator:v1.1.1-72f8a8f87b-8
+          - egovio/land-services:v1.0.4-96b24b0d72-14
+          - egovio/noc-services:v1.0.4-96b24b0d72-18
     - name: m_trade-license    #TL
       dependencies:
           - "core"
           - "business"
       services:
-        - eydigit/tl-calculator:v1.1.4-96b24b0d72-9
-        - eydigit/tl-services:v1.1.5-100cbc1a10-175     
+        - egovio/tl-calculator:v1.1.4-96b24b0d72-9
+        - egovio/tl-services:v1.1.5-100cbc1a10-175     
     - name: m_firenoc         #Fire NOC
       dependencies:
           - "core"
           - "business"
       services:
-          - eydigit/firenoc-calculator:v1.2.0-d4a78bf8a3-19
-          - eydigit/firenoc-services:v1.3.2-12ed7e93c1-64
+          - egovio/firenoc-calculator:v1.2.0-d4a78bf8a3-19
+          - egovio/firenoc-services:v1.3.2-12ed7e93c1-64
     - name: m_water-service   #Water
       dependencies:
           - "core"
           - "business"
       services:
-        - eydigit/ws-calculator:v1.3.2-96b24b0d72-26
-        - eydigit/ws-services:v1.4.2-96b24b0d72-65
+        - eydigit/ws-calculator-db:Dev-c8589e5dd8-1
+        - eydigit/ws-services:Dev-961a36ea7d-2
     - name: m_dss   #dss
       dependencies:        
           - "frontend"
           - "core"
           - "business"
       services:
-        - eydigit/dashboard-analytics:v1.1.6-72f8a8f87b-5
-        - eydigit/dashboard-ingest:v1.1.4-72f8a8f87b-10
-        - eydigit/dss-dashboard:v1.7.0-b916c7d187-13
+        - egovio/dashboard-analytics:v1.1.6-72f8a8f87b-5
+        - egovio/dashboard-ingest:v1.1.4-72f8a8f87b-10
+        - egovio/dss-dashboard:v1.7.0-b916c7d187-13
     - name: m_fsm   #fsm
       dependencies:
           - "core"
           - "business"
       services:
-        - eydigit/fsm:v1.0.4-96b24b0d72-13
-        - eydigit/fsm-calculator:v1.0.0-48a03ad7bb-5
-        - eydigit/vehicle:v1.0.3-96b24b0d72-6
-        - eydigit/vendor:v1.0.3-96b24b0d72-5
+        - egovio/fsm:v1.0.4-96b24b0d72-13
+        - egovio/fsm-calculator:v1.0.0-48a03ad7bb-5
+        - egovio/vehicle:v1.0.3-96b24b0d72-6
+        - egovio/vendor:v1.0.3-96b24b0d72-5
     - name: m_echallan   #eChallan
       dependencies:
           - "core"
           - "business"
       services:
-        - eydigit/echallan-services:v1.0.4-72f8a8f87b-17
-        - eydigit/echallan-calculator:v1.0.2-72f8a8f87b-14
+        - egovio/echallan-services:v1.0.4-72f8a8f87b-17
+        - egovio/echallan-calculator:v1.0.2-72f8a8f87b-14
     - name: Other             #Other Services
       dependencies:
         - "core"
         - "business"
       services:
-        - eydigit/egov-user-event:v1.1.4-48a03ad7bb-18
-        - eydigit/inbox:v1.1.0-96b24b0d72-79
-        - eydigit/turn-io-adapter:v1.0.1-96b24b0d72-5
+        - egovio/egov-user-event:v1.1.4-48a03ad7bb-18
+        - egovio/inbox:v1.1.0-96b24b0d72-79
+        - egovio/turn-io-adapter:v1.0.1-96b24b0d72-5
     - name: m_edcr   #edcr
       dependencies:
           - "core"
       services:
-        - eydigit/egov-edcr:v2.1.0-db5adca27f-23 
+        - egovio/egov-edcr:v2.1.0-db5adca27f-23 
     - name: m_finance         #Finance
       dependencies:
           - "core"
       services:
-          - eydigit/egov-finance:v3.0.2-0d0a8db8ff-28
+          - egovio/egov-finance:v3.0.2-0d0a8db8ff-28
