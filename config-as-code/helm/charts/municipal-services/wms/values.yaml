@@ -40,11 +40,6 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-idgen
-  - name: STATE_LEVEL_TENANT_ID
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: egov-state-level-tenant-id
   - name: EGOV_MDMS_HOST
     valueFrom:
       configMapKeyRef:
@@ -55,39 +50,63 @@ env: |
       configMapKeyRef:
         name: egov-service-host
         key: egov-user
-  - name: EGOV_LOCATION_HOST
-    valueFrom:
-      configMapKeyRef:
-        name: egov-service-host
-        key: egov-location
   - name: EGOV_LOCALIZATION_HOST
     valueFrom:
       configMapKeyRef:
         name: egov-service-host
-        key: egov-localization
-  - name: EGOV_CALCULATION_HOST
-    valueFrom:
-      configMapKeyRef:
-        name: egov-service-host
-        key: pt-calculator-v2
-  - name: EGOV_PT-SERVICES-V2_HOST
-    valueFrom:
-      configMapKeyRef:
-        name: egov-service-host
-        key: pt-services-v2      
-  {{- if index .Values "global" "tracer-errors-provideexceptionindetails" }}
-  - name: TRACER_ERRORS_PROVIDEEXCEPTIONINDETAILS
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: tracer-errors-provideexceptionindetails
-  {{- end }}
-  - name: SPRING_KAFKA_CONSUMER_GROUP_ID
-    value: egov-property-services
-  - name: PERSISTER_SAVE_PROPERTY_TOPIC
-    value: save-property-registry
-  - name: PERSISTER_UPDATE_PROPERTY_TOPIC
-    value: update-property-registry
+        key: egov-localization  
+  - name: WMS_KAFKA_CREATE_TOPIC
+    value: save-wms-application
+  - name: WMS_KAFKA_UPDATE_TOPIC
+    value: update-wms-application
+  - name: SCM_KAFKA_CREATE_TOPIC
+    value: save-scm-application
+  - name: SCM_KAFKA_UPDATE_TOPIC
+    value: update-wms-application
+  - name: SCM_KAFKA_CREATE_TOPIC
+    value: save-scm-application
+  - name: SCM_KAFKA_UPDATE_TOPIC
+    value: update-wms-application
+  - name: CONTR_KAFKA_CREATE_TOPIC
+    value: save-contr-application
+  - name: CONTR_KAFKA_UPDATE_TOPIC
+    value: update-contr-application
+  - name: WRKEST_KAFKA_CREATE_TOPIC
+    value: save-wrkest-application
+  - name: WRKEST_KAFKA_UPDATE_TOPIC
+    value: update-wrkest-application
+  - name: TENDER_KAFKA_CREATE_TOPIC
+    value: save-tender-application
+  - name: TENDER_KAFKA_UPDATE_TOPIC
+    value: update-tender-application
+  - name: WAWARD_KAFKA_CREATE_TOPIC
+    value: save-waward-application
+  - name: WAWARD_KAFKA_UPDATE_TOPIC
+    value: update-waward-application
+  - name: PFMILE_KAFKA_CREATE_TOPIC
+    value: save-pfmile-application
+  - name: PFMILE_KAFKA_UPDATE_TOPIC
+    value: update-pfmile-application
+  - name: CONAGRMT_KAFKA_CREATE_TOPIC
+    value: save-conagrmt-application
+  - name: CONAGRMT_KAFKA_UPDATE_TOPIC
+    value: update-conagrmt-application
+  - name: WORDER_KAFKA_CREATE_TOPIC
+    value: save-worder-application
+  - name: WORDER_KAFKA_UPDATE_TOPIC
+    value: update-worder-application
+  - name: MB_KAFKA_CREATE_TOPIC
+    value: save-mb-application
+  - name: MB_KAFKA_UPDATE_TOPIC
+    value: update-mb-application
+  - name: RAFB_KAFKA_CREATE_TOPIC
+    value: save-rafb-application
+  - name: RAFB_KAFKA_UPDATE_TOPIC
+    value: update-rafb-application
+  - name: WMS_WORK_KAFKA_CREATE_TOPIC
+    value: save-work-application
+  - name: WMS_WORK_KAFKA_UPDATE_TOPIC
+    value: update-work-application
   - name: SPRING_KAFKA_PRODUCER_KEY_SERIALIZER
     value: org.apache.kafka.common.serialization.StringSerializer
   - name: SPRING_KAFKA_PRODUCER_VALUE_SERIALIZER
@@ -100,50 +119,16 @@ env: |
     value: {{ index .Values "java-args" | quote }}
   - name: SERVER_PORT
     value: "8080"
-  - name: NOTIFICATION_URL
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: egov-services-fqdn-name
-  - name: SECURITY_BASIC_ENABLED
-    value: "false"  
-  - name: MANAGEMENT_SECURITY_ENABLED
-    value: "false"
-  - name: ASSESSMENT_WORKFLOW_ENABLED
-    value: "false"
-  - name: EGOV_IDGEN_ACK_FORMAT
-    value: {{ index .Values "egov-idgen-ack-format" | quote }}
-  - name: EGOV_IDGEN_MUTATION_FORMAT
-    value: {{ index .Values "egov-idgen-mutation-format" | quote }} 
-  - name: EGOV_IDGEN_ASSM_FORMAT
-    value: {{ index .Values "egov-idgen-assm-format" | quote }} 
-  - name: EGOV_IDGEN_PTID_FORMAT
-    value: {{ index .Values "egov-idgen-ptid-format" | quote }}        
-
-  - name: NOTIFICATION_SMS_ENABLED
-    value: {{ index .Values "notification-sms-enabled" | quote }}
-  - name: EGOV_USER_EVENT_NOTIFICATION_ENABLED
-    value: "true"
-  {{- if index .Values "employee-allowed-search-params" }}
-  - name: EMPLOYEE_ALLOWED_SEARCH_PARAMS
-    value: {{ index .Values "employee-allowed-search-params" | quote }}
-  {{- end }}
-  {{- if index .Values "citizen-allowed-search-params" }}
-  - name: CITIZEN_ALLOWED_SEARCH_PARAMS
-    value: {{ index .Values "citizen-allowed-search-params" | quote }}
-  {{- end }}
-  - name: EGOV_UI_APP_HOST
-    valueFrom:
-      configMapKeyRef:
-        name: egov-config
-        key: egov-services-fqdn-name
-  - name: EGOV_USR_EVENTS_CREATE_TOPIC
-    value: "persist-user-events-async"
-  - name: EGOV_USR_EVENTS_PAY_LINK
-    value: "citizen/withoutAuth?redirectTo=egov-common/pay?consumerCode=$consumerCode&tenantId=$tenantId&businessService=$businessService"
-  - name: EGOV_USR_EVENTS_PAY_CODE
-    value: "PAY"          
+  - name: EGOV_IDGEN_SOR_IDFORMAT
+    value: {{ index .Values "egov.idgen.sor.idformat" | quote }}
+  - name: EGOV_IDGEN_WORK_IDFORMAT
+    value: {{ index .Values "egov.idgen.work.idformat" | quote }} 
+  - name: EGOV_IDGEN_PROJ_IDFORMAT
+    value: {{ index .Values "egov.idgen.proj.idformat" | quote }} 
+  - name: EGOV_IDGEN_WE_IDFORMAT
+    value: {{ index .Values "egov.idgen.we.idformat" | quote }}        
+  - name: EGOV_UI_APP_HOST   
   {{- if index .Values "tracing-enabled" }}
   - name: TRACER_OPENTRACING_ENABLED
-    value: "true" 
+    value: "false" 
   {{- end }}
